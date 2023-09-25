@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     mail($to, $subject, $message);
 
     // Redirige al usuario a una página de confirmación o muestra un mensaje de éxito
-    header("Location: gracias.html");
+    // header("Location: index.html");
     exit();
 }
 ?>

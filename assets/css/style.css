@@ -206,6 +206,7 @@ body {
   font-size: 17px;
   line-height: 1.8;
   overflow-x: hidden !important;
+  letter-spacing: 1px;
 }
 
 * {
@@ -2574,6 +2575,7 @@ textarea {
 .hero-area-v4 .hero-content .hero-title span {
 	position: relative;
 	z-index: 1;
+
 }
 
 .hero-area-v4 .hero-content .hero-title span::after {
@@ -3853,7 +3855,24 @@ textarea {
   transition: 0.4s;
 }
 
-.image-boxes-v1  .image-box:before {
+.image-boxes-v1 .image-box2 {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0px 10px 30px 0px rgba(225, 223, 255, 0.4);
+  box-shadow: 0px 10px 30px 0px rgba(225, 223, 255, 0.4);
+  padding: 50px 15px;
+  text-align: center;
+  position: relative;
+  border-radius: 7px;
+  overflow: hidden;
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+}
+
+
+
+
+.image-boxes-v1 .image-box1   .image-box:before {
   position: absolute;
   content: "";
   height: 3px;
@@ -3863,7 +3882,7 @@ textarea {
   background-color: var(--color-primary);
 }
 
-.image-boxes-v1  .thumb {
+.image-boxes-v1   .thumb  {
   margin-bottom: 80px;
   max-width: 20%;
   margin: 0 auto;
@@ -3876,9 +3895,9 @@ textarea {
   font-weight: 700;
 }
 
-.image-boxes-v1 .image-box .box-link {
-  height: 55px;
-  width: 55px;
+.image-boxes-v1 .image-box2 .box-link {
+  height: 30px;
+  width: 30px;
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
@@ -3908,8 +3927,15 @@ textarea {
   position: relative;
 }
 
-.image-boxes-v1.image-thumbnail-boxed .image-box .thumb {
-  background-color: #2851ca;
+.image-boxes-v1.image-thumbnail-boxed .image-box  .image-box2{
+  padding: 45px 30px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  position: relative;
+}
+
+.image-boxes-v1.image-thumbnail-boxed .image-box .thumb .image-box2 {
+
   height: 180px;
   width: 180px;
   margin: 0 auto 25px;
@@ -3935,17 +3961,15 @@ textarea {
 }
 
 .image-boxes-v1.image-thumbnail-boxed .image-box:before,
-.image-boxes-v1.image-thumbnail-boxed .image-box .box-link {
-  background-color: var(--color-primary-2);
+.image-boxes-v1.image-thumbnail-boxed .image-box .image-box2 .box-link {
+  background-color: #E1D6EB
 }
 
-.image-boxes-v1.image-thumbnail-boxed .image-box:hover .box-link {
-  background-color: var(--color-primary-2);
-  border-color: var(--color-primary-2);
+.image-boxes-v1.image-thumbnail-boxed .image-box:hover .box-link  {
+  background-color: #E1D6EB;
+  border-color: #E1D6EB;
   color: var(--color-white);
 }
-
-
 
 
 
@@ -13085,5 +13109,6 @@ input[type="checkbox"], input[type="radio"] {
         font-size: 18px;
     }
 }
+
 
 
