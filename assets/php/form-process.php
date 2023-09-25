@@ -1,57 +1,34 @@
 <?php
-
-$errorMSG = "";
-
-// NAME
-if (empty($_POST["name"])) {
-    $errorMSG = "Name is required ";
-} else {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Recopila los datos del formulario
     $name = $_POST["name"];
-}
-
-// EMAIL
-if (empty($_POST["email"])) {
-    $errorMSG .= "Email is required ";
-} else {
     $email = $_POST["email"];
+    $phone = $_POST["phone"];
+    $company = $_POST["company"];
+    $ubicacion = $_POST["ubicacion"];
+    $giro = $_POST["giro"];
+    $poblacion = implode(", ", $_POST["poblacion"]);
+    $num_empleados = $_POST["num_empleados"];
+
+
+
+    // Por ejemplo, puedes enviar un correo electrónico con los datos
+    $to = "gorz12@gmail.com";
+    $subject = "Nuevo formulario de contacto";
+    $message = "Nombre: $name\n";
+    $message .= "Correo Electrónico: $email\n";
+    $message .= "Teléfono: $phone\n";
+    $message .= "Empresa: $company\n";
+    $message .= "Ubicación: $ubicacion\n";
+    $message .= "Giro/Industria: $giro\n";
+    $message .= "Población a cubrir: $poblacion\n";
+    $message .= "Número de Empleados: $num_empleados\n";
+
+    // Utiliza la función mail() para enviar el correo
+    mail($to, $subject, $message);
+
+    // Redirige al usuario a una página de confirmación o muestra un mensaje de éxito
+    header("Location: gracias.html");
+    exit();
 }
-
-// MESSAGE
-if (empty($_POST["message"])) {
-    $errorMSG .= "Message is required ";
-} else {
-    $message = $_POST["message"];
-}
-
-
-$EmailTo = "yourmail@domain.com";
-
-$bodySubject = "New Message Received";
-
-// prepare email body text
-$Body = "";
-$Body .= "Name: ";
-$Body .= $name;
-$Body .= "\n";
-$Body .= "Email: ";
-$Body .= $email;
-$Body .= "\n";
-$Body .= "Message: ";
-$Body .= $message;
-$Body .= "\n";
-
-// send email
-$success = mail($EmailTo, $bodySubject, $Body);
-
-// redirect to success page
-if ($success && $errorMSG == ""){
-   echo "success";
-}else{
-    if($errorMSG == ""){
-        echo "Something went wrong :(";
-    } else {
-        echo $errorMSG;
-    }
-}
-
 ?>
